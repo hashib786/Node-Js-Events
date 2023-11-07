@@ -49,7 +49,7 @@ myEmitter.on("hashib", function thirdListener(...args) {
   console.log(`event with parameters ${parameters} in third listener`);
 });
 
-console.log(myEmitter.listeners("event").toLocaleString());
+console.log(myEmitter.listeners("event").length);
 
 const server = http.createServer((req, res) => {});
 
@@ -64,3 +64,5 @@ console.log(myEmitter.eventNames());
 server.emit("hashib", 1, 2, 3, 4, 5);
 console.log(server.eventNames());
 console.log(server.listeners("hashib")[0]("hello", "world"));
+
+console.log(myEmitter.listenerCount("event"));
